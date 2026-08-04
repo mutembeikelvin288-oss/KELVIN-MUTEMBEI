@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="GENIUS CBE is a polished, installable learning app for Kenya Grade 9 CBC/CBE learners." />
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="GENIUS" />
+    <title>GENIUS | Learn. Practice. Master.</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav container">
+        <a class="brand" href="#top">GENIUS</a>
+        <div class="nav-links">
+          <a href="#subjects">Subjects</a>
+          <a href="#quiz">Quiz</a>
+          <a href="#plans">Plans</a>
+          <a href="#vault">Vault</a>
+        </div>
+      </nav>
+
+      <div class="container hero-grid" id="top">
+        <div>
+          <p class="eyebrow">GENIUS learning app</p>
+          <h1>Learn. Practice. Master.</h1>
+          <p class="lead">GENIUS gives Grade 9 learners a polished, colorful way to study, practice unlimited quizzes, and keep learning with persistent support.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#quiz">Start Unlimited Quiz</a>
+            <a class="btn btn-secondary" href="#subjects">Explore Subjects</a>
+            <button id="installButton" class="btn btn-secondary">Install App</button>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>Today’s study boost</h3>
+          <ul>
+            <li>Open fresh quiz sets in any subject</li>
+            <li>Switch between quick, mastery, and infinite modes</li>
+            <li>Use the AI tutor and save your notes in the vault</li>
+            <li>Track XP, streaks, badges, and storage with confidence</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section container" id="subjects">
+        <div class="section-heading">
+          <p class="eyebrow">Choose a learning path</p>
+          <h2>Every subject now has fresh challenge sets</h2>
+        </div>
+        <div id="subjectGrid" class="card-grid"></div>
+        <div id="subjectDetail" class="detail-card"></div>
+      </section>
+
+      <section class="section section-alt" id="quiz">
+        <div class="container quiz-layout">
+          <div class="quiz-card">
+            <div class="section-heading">
+              <p class="eyebrow">Practice mode</p>
+              <h2>Infinite Grade 9 CBC/CBE quizzes</h2>
+            </div>
+            <div class="quiz-toolbar">
+              <select id="subjectSelect" class="select"></select>
+              <select id="modeSelect" class="select">
+                <option value="Quick">Quick</option>
+                <option value="Mastery">Mastery</option>
+                <option value="Infinite">Infinite</option>
+              </select>
+              <button id="newQuizButton" class="btn btn-primary">New Quiz</button>
+              <button id="nextQuestionButton" class="btn btn-secondary">Next Question</button>
+            </div>
+            <div class="quiz-status">
+              <span id="questionCount">Question 1/5</span>
+              <span id="scoreCount">Score: 0</span>
+              <span id="planStatus">Free Plan</span>
+            </div>
+            <div id="quizPrompt" class="quiz-prompt"></div>
+            <div id="answerButtons" class="answer-grid"></div>
+            <div class="quiz-actions">
+              <button id="hintButton" class="btn btn-secondary">Show Hint</button>
+              <button id="restartButton" class="btn btn-primary">Reset Quiz</button>
+            </div>
+            <p id="feedback" class="feedback"></p>
+          </div>
+
+          <div class="side-panel">
+            <div class="feature-card">
+              <h3>AI Tutor</h3>
+              <input id="tutorPrompt" class="input" placeholder="Ask: explain this question or give me a hint" />
+              <button id="askTutorButton" class="btn btn-primary">Ask Tutor</button>
+              <p id="aiTutorText">The tutor is ready to guide you step by step.</p>
+              <button id="voiceButton" class="btn btn-secondary">Read Aloud</button>
+            </div>
+            <div class="feature-card">
+              <h3>Study tip</h3>
+              <p>Use the AI tutor to explain tricky topics and keep practicing until the concept feels clear.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container" id="plans">
+        <div class="section-heading">
+          <p class="eyebrow">Subscriptions</p>
+          <h2>Choose a plan to unlock deeper learning</h2>
+        </div>
+        <div id="plansGrid" class="plans-grid"></div>
+        <p id="subscriptionStatus" class="subscription-status"></p>
+      </section>
+
+      <section class="section container" id="progress">
+        <div class="section-heading">
+          <p class="eyebrow">Progress dashboard</p>
+          <h2>Track growth and stay motivated</h2>
+        </div>
+        <div class="progress-panel">
+          <div>
+            <h3>Your learning snapshot</h3>
+            <p>Every quiz, streak, and badge moves your learning journey forward.</p>
+          </div>
+          <div class="stats">
+            <div><strong id="xpValue">0</strong><span>XP points</span></div>
+            <div><strong id="streakValue">0</strong><span>Daily streak</span></div>
+            <div><strong id="badgeValue">0</strong><span>Badges earned</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container" id="vault">
+        <div class="section-heading">
+          <p class="eyebrow">Learning vault</p>
+          <h2>Store progress, notes, and challenge history with room to grow</h2>
+        </div>
+        <div class="vault-grid">
+          <div class="vault-card">
+            <h3>Persistent storage</h3>
+            <p>GENIUS CBE now aims for a large local study vault with up to 500MB of persistent learning space.</p>
+            <div class="storage-meter">
+              <div id="storageBar"></div>
+            </div>
+            <p id="storageStatus">Preparing storage…</p>
+            <button id="persistButton" class="btn btn-primary">Enable persistent storage</button>
+          </div>
+          <div class="vault-card">
+            <h3>Save study notes</h3>
+            <textarea id="noteInput" class="input note-input" placeholder="Write a summary, formula, or self-reminder"></textarea>
+            <div class="hero-actions">
+              <button id="saveNoteButton" class="btn btn-primary">Save note</button>
+              <button id="clearNotesButton" class="btn btn-secondary">Clear all</button>
+            </div>
+            <div id="noteList" class="note-list"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="container footer-content">
+        <div>
+          <h3>GENIUS</h3>
+          <p>Helping every Grade 9 learner achieve CBC competencies through simple, interactive learning.</p>
+        </div>
+        <p>© <span id="year"></span> GENIUS. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
